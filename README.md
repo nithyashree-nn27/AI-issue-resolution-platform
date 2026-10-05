@@ -140,7 +140,7 @@ that the project can run without enterprise credentials.
 
 <p align="left">
 
-<img src="https://cdn.simpleicons.org/amazonaws/232F3E"
+<img src="https://logos-world.net/wp-content/uploads/2021/08/Amazon-Web-Services-AWS-Logo.png"
      width="50"
      height="50"
      alt="AWS"/>
@@ -195,8 +195,8 @@ that the project can run without enterprise credentials.
 ## Enterprise Integration
 
 <p align="left">
-  <img src="https://cdn.simpleicons.org/microsoftteams/6264A7" alt="Microsoft Teams" height="32"/>
-  <img src="https://cdn.simpleicons.org/confluence/172B4D" alt="Confluence" height="32"/>
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/960px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png" alt="Microsoft Teams" height="40"/>
+  <img src="https://logos-world.net/wp-content/uploads/2023/11/Confluence-Emblem.png" alt="Confluence" height="40"/>
 </p>
 
 **Microsoft Teams** · **Bot/API Integration** · **Confluence**

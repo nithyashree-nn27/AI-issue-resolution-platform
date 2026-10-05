@@ -275,6 +275,7 @@ Confluence         Order Data
               │
               ▼
        Microsoft Teams
+```
 
 ---
 
@@ -325,5 +326,5 @@ Knowledge Retrieval
      |
      v
 Contextual Response
-
+```
 ---

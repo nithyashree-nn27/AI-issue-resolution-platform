@@ -171,14 +171,14 @@ exposing proprietary data, credentials, or internal systems.
 Example of an enterprise knowledge-retrieval interaction using
 AWS Q Business.
 
-![AI Issue Resolution](docs/images/internship-issue-resolution.png)
+![AI Issue Resolution](docs/images/internship-issue-resolution-sanitized.png)
 
 ### Order Information Retrieval
 
 Example of structured information retrieval through the support
 workflow.
 
-![Order Information Retrieval](docs/images/internship-order-tracking.png)
+![Order Information Retrieval](docs/images/internship-order-tracking-sanitized.png)
 
 > **Note:** Screenshots have been sanitized for public portfolio
 > use. Customer information, order details, internal URLs,
@@ -190,7 +190,7 @@ workflow.
 ### Enterprise Integration
 
 <p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" width="50" height="50" alt="Microsoft"/>
+  <img src="https://cdn.simpleicons.org/microsoft" width="50" height="50" alt="Microsoft"/>
 </p>
 
 **Microsoft Teams** · **Bot/API Integration** · **Confluence**
@@ -200,9 +200,18 @@ workflow.
 ### Testing & DevOps
 
 <p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" width="50" height="50" alt="GitHub Actions"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="50" height="50" alt="Git"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="50" height="50" alt="GitHub"/>
+  <img src="https://cdn.simpleicons.org/githubactions"
+       width="50"
+       height="50"
+       alt="GitHub Actions"/>
+  <img src="https://cdn.simpleicons.org/git"
+       width="50"
+       height="50"
+       alt="Git"/>
+  <img src="https://cdn.simpleicons.org/github"
+       width="50"
+       height="50"
+       alt="GitHub"/>
 </p>
 
 **Python unittest** · **GitHub Actions** · **Git** · **GitHub**

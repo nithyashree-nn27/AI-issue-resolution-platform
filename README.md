@@ -328,3 +328,197 @@ Knowledge Retrieval
 Contextual Response
 ```
 ---
+
+![Security Flow](docs/images/security-flow.png)
+
+> In this public demo, the user role is supplied in the request body and
+> checked against the configured demonstration roles. Production-grade
+> authentication and identity verification are outside the scope of this
+> sanitized implementation.
+
+---
+
+# Demo
+
+![API Demo](docs/images/api-demo1.png)(docs/images/api-demo2.png)
+
+*Swagger UI running locally against the synthetic knowledge base.*
+
+---
+
+# Getting Started
+
+### Requirements
+
+- Python 3.12+
+- pip
+
+### Run locally
+
+```bash
+git clone https://github.com/[YOUR_USERNAME]/ai-issue-resolution-platform.git
+cd ai-issue-resolution-platform
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env             # Windows: copy .env.example .env
+uvicorn app.main:app --reload
+```
+
+- API: `http://localhost:8000`
+- Swagger docs: `http://localhost:8000/docs`
+
+### Run tests
+
+```bash
+python -m unittest discover -s tests -t .
+```
+
+---
+
+# API Reference
+
+| Method | Path | Purpose | Success | Errors |
+|---|---|---|---|---|
+| POST | `/api/v1/resolve` | Classify an issue, retrieve knowledge, return a resolution | 200 | 403 role not authorized, 422 invalid request |
+| GET | `/docs` | Interactive Swagger UI | 200 | - |
+
+### Request body
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `query` | string | Yes | The support issue in plain text |
+| `user_role` | string | Yes | Checked by the authorization layer |
+| `order_id` | string | No | Accepted by the API; not used in the public demo |
+
+### Example
+
+```bash
+curl -X POST http://localhost:8000/api/v1/resolve \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "[a question that exists in examples/knowledge_base.md]",
+    "user_role": "[an allowed role]"
+  }'
+```
+
+Response (200):
+
+```json
+{
+  "category": "[...]",
+  "status": "[...]"
+}
+```
+
+Unauthorized role (403):
+
+```json
+{
+  "detail": "User is not authorized to access issue-resolution services."
+}
+```
+
+More examples: [docs/api/examples.md](docs/api/examples.md)
+
+---
+
+# Project Structure
+
+```text
+app/
+├── api/         # FastAPI routes
+├── config/      # Settings and logging
+├── models/      # Request/response models (Pydantic)
+├── rag/         # Retrieval layer (local demo + replaceable interface)
+└── services/    # Authorization, issue resolution, fallback
+docs/            # Architecture, API and technical notes
+examples/        # Synthetic knowledge base
+infrastructure/  # AWS notes (no real configs)
+tests/           # Unit and integration tests
+```
+
+---
+
+# Documentation
+
+- [API endpoints](docs/api/endpoints.md) · [API examples](docs/api/examples.md)
+- [System architecture](docs/architecture/system-architecture.md)
+- [Request flow](docs/architecture/request-flow.md)
+- [RAG workflow](docs/architecture/rag-workflow.md)
+- [Security flow](docs/architecture/security-flow.md)
+- [Enterprise retrieval](docs/technical/enterprise-retrieval.md)
+- [Observability](docs/technical/observability.md)
+- [RAG pipeline](docs/technical/rag-pipeline.md)
+- [Testing](docs/technical/testing.md)
+
+---
+
+# My Contributions
+
+As part of the internship project team, I contributed to the development of the AI-powered issue-resolution workflow.
+
+### My Contributions
+
+- Developed FastAPI REST endpoints to accept support issues and return structured responses using Pydantic validation.
+- Implemented role-based authorization checks to restrict access to the issue-resolution service and return HTTP 403 for unauthorized roles.
+- Integrated the backend workflow with AWS Q Business to retrieve relevant knowledge from Confluence.
+- Implemented fallback handling for unclear, unsupported, or unresolved queries.
+- Contributed to issue categorization and routing so different support issues could be handled through the appropriate workflow.
+- Wrote unit and integration tests and fixed issues identified during API-flow testing.
+- Worked with the team on the overall Microsoft Teams → backend/API → AWS Q Business workflow.
+- Contributed to the design and implementation of a maintainable API and retrieval workflow for enterprise support automation.
+
+> **Team Contribution:** This was a collaborative internship project. The points above describe my individual contributions; the complete production system involved additional components and work by other team members.
+
+> **Public Repository:** The implementation in this repository is a sanitized representation of the concepts and engineering patterns from the internship. Production credentials, proprietary knowledge, internal configurations, and enterprise data are intentionally excluded.
+
+---
+
+# Limitations
+
+- Uses a small synthetic knowledge base, not real enterprise data
+- Local retrieval is a simple demo, not a replacement for AWS Q Business
+- Teams, S3, Lambda and API Gateway are not included in this repo
+- The user role is sent in the request body and is not verified. Real authentication (SSO or tokens) is not implemented in this demo
+- `order_id` is accepted but order lookup is not included in the public version
+- Not tested for production load or security
+
+---
+
+# Disclaimer
+
+This is a personal portfolio project based on my internship experience at
+Titan Company Limited. It is **not an official Titan or TATA product** and
+is not endorsed by either company.
+
+- All data is synthetic.
+- No confidential code, credentials, internal URLs or customer data is included.
+- Some architecture details are simplified or changed for public sharing.
+- AWS, Confluence and Microsoft Teams are trademarks of their respective owners.
+
+---
+
+# Contact
+
+- **Name:** Nithyashree
+- **LinkedIn:** https://www.linkedin.com/in/nithyashree-nn27
+- **Email:** nithyashree.nn27@gmail.com
+
+---
+
+# License
+
+[MIT License]. See the `LICENSE` file.
+
+
+
+
+
+
+
+
+
+
+
+
